@@ -18,7 +18,6 @@ type Response struct {
 }
 
 func calculate(expression string) (float64, error) {
-	// Удаление пробелов и обработка
 	expression = strings.ReplaceAll(expression, " ", "")
 	terms := strings.FieldsFunc(expression, func(r rune) bool {
 		return r == '+' || r == '-' || r == '*' || r == '/'
@@ -28,9 +27,7 @@ func calculate(expression string) (float64, error) {
 		return 0, fmt.Errorf("invalid expression")
 	}
 
-	// Более сложный алгоритм для вычисления выражения
 	var result float64
-	//var currentOp string
 
 	for i, term := range terms {
 		num, err := strconv.ParseFloat(term, 64)
